@@ -17,8 +17,8 @@ client.connect({
   gecos: "d5hbot"
 });
 client.on("registered", () => {
-  console.log("Connected!")
-  client.join("#main");
+  console.log("Connected!");
+  config.channels.forEach(channel => client.join(channel));
 })
 client.on("message", (event: any) => {
   if(!event.message.trim().startsWith("d.")) return;
