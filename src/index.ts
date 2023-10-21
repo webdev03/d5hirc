@@ -1,3 +1,4 @@
+// @ts-expect-error
 import { Client } from "irc-framework";
 import { MessageEvent } from "./types";
 import config from "../config.json";
@@ -19,7 +20,7 @@ client.on("registered", () => {
   console.log("Connected!")
   client.join("#main");
 })
-client.on("message", (event) => {
+client.on("message", (event: any) => {
   if(!event.message.trim().startsWith("d.")) return;
   const msg = event.message.slice(2).trim();
   const eventData = {
@@ -34,11 +35,11 @@ client.on("message", (event) => {
 });
 
 // Handle errors and disconnect events
-client.on("error", (err) => {
+client.on("error", (err: any) => {
   console.error("Error:", err);
   // TODO: custom error handling here
 });
 
-client.on("disconnect", (event) => {
+client.on("disconnect", (event: any) => {
   console.log("Disconnected:", event.reason);
 });
