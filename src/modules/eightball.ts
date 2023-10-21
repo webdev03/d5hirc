@@ -6,7 +6,7 @@ const options = ["It is certain", "It is decidedly so", "Without a doubt", "Yes 
 export default {
   fn: (ev) => {
     if(ev.message.startsWith("magic8")) {
-      ev.reply(template("Magic 8 Ball", ev.ident, `${options[Math.floor(Math.random() * options.length)]}`))
+      ev.reply(template("Magic 8 Ball", ev.nick, `${options[Math.floor(Math.random() * options.length)]}`))
     }
   }
 } satisfies Module;

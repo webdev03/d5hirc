@@ -5,9 +5,6 @@ const tioLangs = (await tio.languages()).map(x => x.id);
 export default {
   fn: async (ev) => {
     if(ev.message.startsWith("eval ")) {
-      if(ev.hostname !== "netadmin.devarsh.me") {
-        return;
-      }
       const msgString = ev.message.slice(5);
       const language = msgString.split(" ")[0];
       const evalString = msgString.slice(language.length + 1);

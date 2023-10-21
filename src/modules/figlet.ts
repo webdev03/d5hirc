@@ -10,7 +10,7 @@ export default {
         width: 80
       });
       figl.split("\n").forEach(line => {
-        ev.reply(template("Figlet", ev.ident, line))
+        ev.reply(template("Figlet", ev.nick, line))
       })
     }
   }
