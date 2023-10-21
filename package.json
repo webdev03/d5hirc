@@ -1,0 +1,21 @@
+{
+  "name": "d5hirc",
+  "version": "1.0.0",
+  "description": "The modern IRC bot - make your users happy",
+  "author": "webdev03",
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "figlet": "^1.6.0",
+    "irc-framework": "^4.13.1",
+    "tryitonline": "^1.1.0",
+    "tsx": "^3.14.0",
+    "typescript": "^5.2.2"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/figlet": "^1.5.7"
+  }
+}
