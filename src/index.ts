@@ -7,7 +7,8 @@ import EightBallModule from "./modules/eightball";
 import EvalModule from "./modules/eval";
 import FigletModule from "./modules/figlet";
 import SquawkModule from "./modules/squawk";
-const modules = [RandomModule, EightBallModule, EvalModule, FigletModule];
+import TicTacToe from "./modules/tictactoe";
+const modules = [RandomModule, EightBallModule, EvalModule, FigletModule, TicTacToe];
 const client = new Client();
 let messageCounter = 0;
 client.connect({
