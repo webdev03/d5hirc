@@ -61,7 +61,7 @@ export default {
       if(lastSquawk.length < 1) {
         ev.reply(template("Squawk", ev.nick, `The squawk is not on yet!`))
       } else if(reply.toLowerCase() === lastSquawk.slice(9).toLowerCase()) {
-        if(((Date.now() - lastSquawkTime) / 1000) < 0.5) {
+        if(((Date.now() - lastSquawkTime) / 1000) < 4) {
           ev.reply(template("Squawk", ev.nick, `Cheating ain't cool`))
           return;
         }
