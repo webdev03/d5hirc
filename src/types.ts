@@ -4,6 +4,7 @@ export type MessageEvent = {
   hostname: string,
   message: string,
   time: Date | undefined,
+  totalMessages: number,
   reply: (msg: string) => void;
 };
 

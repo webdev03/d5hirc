@@ -6,9 +6,10 @@ import RandomModule from "./modules/random";
 import EightBallModule from "./modules/eightball";
 import EvalModule from "./modules/eval";
 import FigletModule from "./modules/figlet";
+import SquawkModule from "./modules/squawk";
 const modules = [RandomModule, EightBallModule, EvalModule, FigletModule];
 const client = new Client();
-
+let messageCounter = 0;
 client.connect({
   host: config.server,
   port: config.port,
@@ -21,7 +22,7 @@ client.on("registered", () => {
   config.channels.forEach(channel => client.join(channel));
 })
 client.on("message", (event: any) => {
-  if(!event.message.trim().startsWith("d.")) return;
+  messageCounter++;
   const msg = event.message.slice(2).trim();
   const eventData = {
     nick: event.nick as string,
@@ -29,8 +30,11 @@ client.on("message", (event: any) => {
     hostname: event.hostname as string,
     message: msg,
     time: new Date(event.tags.time) || undefined,
-    reply: event.reply
+    reply: event.reply,
+    totalMessages: messageCounter
   } satisfies MessageEvent;
+  SquawkModule.fn(eventData);
+  if(!event.message.trim().startsWith("d.")) return;
   modules.forEach(module => module.fn(eventData))
 });
 
