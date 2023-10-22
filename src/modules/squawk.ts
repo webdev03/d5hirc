@@ -57,7 +57,6 @@ export default {
     }
     if(ev.message.startsWith("squawk ")) {
       const reply = ev.message.slice(7);
-      console.log(lastSquawk.slice(9), reply)
       if(lastSquawk.length < 1) {
         ev.reply(template("Squawk", ev.nick, `The squawk is not on yet!`))
       } else if(reply.toLowerCase() === lastSquawk.slice(9).toLowerCase()) {
