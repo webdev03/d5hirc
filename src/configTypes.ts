@@ -23,7 +23,7 @@ export type Config = {
    * Channels list
    */
   channels: string[];
-}
+};
 
 export function defineConfig(config: Config) {
   return config;

@@ -9,7 +9,14 @@ import FigletModule from "./modules/figlet";
 import SquawkModule from "./modules/squawk";
 import TicTacToe from "./modules/tictactoe";
 import BombParty from "./modules/bombparty";
-const modules = [RandomModule, EightBallModule, EvalModule, FigletModule, TicTacToe, BombParty];
+const modules = [
+  RandomModule,
+  EightBallModule,
+  EvalModule,
+  FigletModule,
+  TicTacToe,
+  BombParty
+];
 const client = new Client();
 let messageCounter = 0;
 client.connect({
@@ -21,8 +28,8 @@ client.connect({
 });
 client.on("registered", () => {
   console.log("Connected!");
-  config.channels.forEach(channel => client.join(channel));
-})
+  config.channels.forEach((channel) => client.join(channel));
+});
 client.on("message", (event: any) => {
   messageCounter++;
   const msg = event.message.slice(2).trim();
@@ -36,8 +43,8 @@ client.on("message", (event: any) => {
     totalMessages: messageCounter
   } satisfies MessageEvent;
   SquawkModule.fn(eventData);
-  if(!event.message.trim().startsWith("d.")) return;
-  modules.forEach(module => module.fn(eventData))
+  if (!event.message.trim().startsWith("d.")) return;
+  modules.forEach((module) => module.fn(eventData));
 });
 
 // Handle errors and disconnect events

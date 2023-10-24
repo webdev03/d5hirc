@@ -1,10 +1,10 @@
 export type MessageEvent = {
-  nick: string,
-  ident: string,
-  hostname: string,
-  message: string,
-  time: Date | undefined,
-  totalMessages: number,
+  nick: string;
+  ident: string;
+  hostname: string;
+  message: string;
+  time: Date | undefined;
+  totalMessages: number;
   reply: (msg: string) => void;
 };
 

@@ -145,7 +145,7 @@ const PROMPTS = array([
   "sh",
   "ti",
   "ul",
-  "ji",
+  "ji"
 ]);
 function genPrompt() {
   return PROMPTS[Math.floor(Math.random() * PROMPTS.length)];
@@ -177,7 +177,7 @@ export default {
           started: false,
           currentTurn: 0,
           currentPrompt: "ab",
-          currentTime: Date.now(),
+          currentTime: Date.now()
         });
         ev.reply(
           template(
@@ -321,40 +321,43 @@ export default {
             } {word} )`
           )
         );
-        setTimeout(() => {
-          if (game.currentTurn === ct) {
-            ev.reply(
-              template(
-                "BombParty",
-                ev.nick,
-                `You took more than ${
-                  15 - game.currentTurn * 0.1
-                } seconds, you're out.`
-              )
-            );
-            game.players = game.players.filter((x) => x !== ev.nick);
-            if (game.players.length === 0) {
+        setTimeout(
+          () => {
+            if (game.currentTurn === ct) {
               ev.reply(
                 template(
                   "BombParty",
                   ev.nick,
-                  `Luckily, you were the last one standing: YOU WON :D`
+                  `You took more than ${
+                    15 - game.currentTurn * 0.1
+                  } seconds, you're out.`
                 )
               );
-              return;
+              game.players = game.players.filter((x) => x !== ev.nick);
+              if (game.players.length === 0) {
+                ev.reply(
+                  template(
+                    "BombParty",
+                    ev.nick,
+                    `Luckily, you were the last one standing: YOU WON :D`
+                  )
+                );
+                return;
+              }
+              game.currentPrompt = genPrompt();
+              game.currentTime = Date.now();
+              ev.reply(
+                template(
+                  "BombParty",
+                  game.players[game.currentTurn % game.players.length],
+                  `Prompt: ${game.currentPrompt} (Play by running d.bmb play ${game.id} {word} )`
+                )
+              );
             }
-            game.currentPrompt = genPrompt();
-            game.currentTime = Date.now();
-            ev.reply(
-              template(
-                "BombParty",
-                game.players[game.currentTurn % game.players.length],
-                `Prompt: ${game.currentPrompt} (Play by running d.bmb play ${game.id} {word} )`
-              )
-            );
-          }
-        }, 15000 - game.currentTurn * 100);
+          },
+          15000 - game.currentTurn * 100
+        );
       }
     }
-  },
+  }
 } satisfies Module;
