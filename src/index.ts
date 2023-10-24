@@ -1,7 +1,7 @@
 // @ts-expect-error
 import { Client } from "irc-framework";
 import { MessageEvent } from "./types";
-import config from "../config.json";
+import config from "../config";
 import RandomModule from "./modules/random";
 import EightBallModule from "./modules/eightball";
 import EvalModule from "./modules/eval";
