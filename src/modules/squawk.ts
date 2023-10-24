@@ -3,13 +3,9 @@ import { template } from "../utils";
 
 const WORDS = [
   "weird",
-  "i",
   "want",
   "dead",
-  "Mitsubishi",
   "outlander",
-  "please firepup stop killing me",
-  "please 9pfs stop",
   "platypus",
   "pineapple",
   "orange",
@@ -20,11 +16,9 @@ const WORDS = [
   "9pfs",
   "h",
   "hello-smile6",
-  "is",
   "cool",
   "argentina",
   "antarctica",
-  "usa",
   "guns",
   "boom",
   "lol",
@@ -32,6 +26,12 @@ const WORDS = [
   "confusion",
   "neoroll",
   "wooo",
+  "supersonic",
+  "complementary",
+  "colour",
+  "america",
+  "new zealand",
+  "britain",
   "amc",
   "irc"
 ];
