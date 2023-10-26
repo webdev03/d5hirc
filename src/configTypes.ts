@@ -23,6 +23,9 @@ export type Config = {
    * Channels list
    */
   channels: string[];
+  opts: {
+    ANIRUDHGPT_TOKEN: string;
+  }
 };
 
 export function defineConfig(config: Config) {

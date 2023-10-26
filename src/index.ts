@@ -9,13 +9,15 @@ import FigletModule from "./modules/figlet";
 import SquawkModule from "./modules/squawk";
 import TicTacToe from "./modules/tictactoe";
 import BombParty from "./modules/bombparty";
+import AnirudhGPT from "./modules/anirudhgpt";
 const modules = [
   RandomModule,
   EightBallModule,
   EvalModule,
   FigletModule,
   TicTacToe,
-  BombParty
+  BombParty,
+  AnirudhGPT
 ];
 const client = new Client();
 let messageCounter = 0;

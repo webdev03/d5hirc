@@ -7,5 +7,8 @@ export default defineConfig({
   nick: "D5H[bot]",
   userName: "D5H",
   realName: "D5H by NeoRoll",
-  channels: ["#main", "#bots"]
+  channels: ["#main", "#bots"],
+  opts: {
+    ANIRUDHGPT_TOKEN: "sk-default"
+  }
 });
