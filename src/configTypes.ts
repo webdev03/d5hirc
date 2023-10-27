@@ -1,3 +1,5 @@
+import { Module } from "./types";
+
 export type Config = {
   /**
    * IP/domain of the server
@@ -23,6 +25,8 @@ export type Config = {
    * Channels list
    */
   channels: string[];
+  normalModules: Module[];
+  alwaysModules: Module[];
   opts: {
     ANIRUDHGPT_TOKEN: string;
   };

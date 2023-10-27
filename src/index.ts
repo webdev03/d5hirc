@@ -2,23 +2,6 @@
 import { Client } from "irc-framework";
 import { MessageEvent } from "./types";
 import config from "../config";
-import RandomModule from "./modules/random";
-import EightBallModule from "./modules/eightball";
-import EvalModule from "./modules/eval";
-import FigletModule from "./modules/figlet";
-import SquawkModule from "./modules/squawk";
-import TicTacToe from "./modules/tictactoe";
-import BombParty from "./modules/bombparty";
-import AnirudhGPT from "./modules/anirudhgpt";
-const modules = [
-  RandomModule,
-  EightBallModule,
-  EvalModule,
-  FigletModule,
-  TicTacToe,
-  BombParty,
-  AnirudhGPT
-];
 const client = new Client();
 let messageCounter = 0;
 client.connect({
@@ -34,7 +17,7 @@ client.on("registered", () => {
 });
 client.on("message", (event: any) => {
   messageCounter++;
-  const msg = event.message.slice(2).trim();
+  const msg = event.message.trim().startsWith("d.") ? event.message.slice(2).trim() : event.message;
   const eventData = {
     nick: event.nick as string,
     ident: event.ident as string,
@@ -44,9 +27,9 @@ client.on("message", (event: any) => {
     reply: event.reply,
     totalMessages: messageCounter
   } satisfies MessageEvent;
-  SquawkModule.fn(eventData);
+  config.alwaysModules.forEach(module => module.fn(eventData));
   if (!event.message.trim().startsWith("d.")) return;
-  modules.forEach((module) => module.fn(eventData));
+  config.normalModules.forEach((module) => module.fn(eventData));
 });
 
 // Handle errors and disconnect events
