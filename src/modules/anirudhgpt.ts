@@ -15,11 +15,15 @@ export default {
             model: "gpt-3.5-turbo",
             messages: [
               {
+                role: "system",
+                content: "Respond in less than 80 words."
+              },
+              {
                 role: "user",
                 content: text
               }
             ],
-            temperature: 0.5
+            temperature: 0.6
           }),
           headers: {
             "Content-Type": "application/json",
