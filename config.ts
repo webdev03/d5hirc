@@ -23,7 +23,7 @@ export default defineConfig({
     FigletModule,
     TicTacToe,
     BombParty,
-    AnirudhGPT
+    // AnirudhGPT
   ],
   opts: {
     ANIRUDHGPT_TOKEN: "sk-default"
