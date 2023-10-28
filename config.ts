@@ -7,6 +7,7 @@ import SquawkModule from "./src/modules/squawk";
 import TicTacToe from "./src/modules/tictactoe";
 import BombParty from "./src/modules/bombparty";
 import AnirudhGPT from "./src/modules/anirudhgpt";
+import BoredModule from "./src/modules/bored";
 export default defineConfig({
   /* Edit this configuration! */
   server: "100.97.208.126",
@@ -15,7 +16,9 @@ export default defineConfig({
   userName: "D5H",
   realName: "D5H by NeoRoll",
   channels: ["#main", "#bots"],
-  alwaysModules: [SquawkModule],
+  alwaysModules: [
+    SquawkModule
+  ],
   normalModules: [
     RandomModule,
     EightBallModule,
@@ -23,7 +26,8 @@ export default defineConfig({
     FigletModule,
     TicTacToe,
     BombParty,
-    // AnirudhGPT
+    BoredModule,
+    AnirudhGPT
   ],
   opts: {
     ANIRUDHGPT_TOKEN: "sk-default"
