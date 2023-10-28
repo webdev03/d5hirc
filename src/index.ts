@@ -17,7 +17,9 @@ client.on("registered", () => {
 });
 client.on("message", (event: any) => {
   messageCounter++;
-  const msg = event.message.trim().startsWith("d.") ? event.message.slice(2).trim() : event.message;
+  const msg = event.message.trim().startsWith("d.")
+    ? event.message.slice(2).trim()
+    : event.message;
   const eventData = {
     nick: event.nick as string,
     ident: event.ident as string,
@@ -27,7 +29,7 @@ client.on("message", (event: any) => {
     reply: event.reply,
     totalMessages: messageCounter
   } satisfies MessageEvent;
-  config.alwaysModules.forEach(module => module.fn(eventData));
+  config.alwaysModules.forEach((module) => module.fn(eventData));
   if (!event.message.trim().startsWith("d.")) return;
   config.normalModules.forEach((module) => module.fn(eventData));
 });

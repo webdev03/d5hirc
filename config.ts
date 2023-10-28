@@ -16,9 +16,7 @@ export default defineConfig({
   userName: "D5H",
   realName: "D5H by NeoRoll",
   channels: ["#main", "#bots"],
-  alwaysModules: [
-    SquawkModule
-  ],
+  alwaysModules: [SquawkModule],
   normalModules: [
     RandomModule,
     EightBallModule,
@@ -31,5 +29,5 @@ export default defineConfig({
   ],
   opts: {
     ANIRUDHGPT_TOKEN: "sk-default"
-  },
+  }
 });
