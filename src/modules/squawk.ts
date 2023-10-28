@@ -82,7 +82,7 @@ let lastSquawkTime = Date.now();
 
 export default {
   fn: (ev) => {
-    if (ev.totalMessages % 40 === 1) {
+    if (ev.totalMessages % 70 === 1) {
       ev.reply(`SQUAWK!!!! First person to type this wins!`);
       lastSquawk = genString();
       lastSquawkTime = Date.now();
